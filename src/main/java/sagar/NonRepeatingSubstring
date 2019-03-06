@@ -1,5 +1,6 @@
 class NonRepeatingSubstring {
-  public int lengthOfLongestSubstring(String s) {
+  //Sub Optimal
+  public int lengthOfLongestSubstringUsingMap(String s) {
     if (s.length() < 2) {
       return s.length();
     }
@@ -23,4 +24,35 @@ class NonRepeatingSubstring {
     }
     return Math.max(maxLength,currLength);
   }
+  //Optimal
+  public int lengthOfLongestSubstring(String s) {
+        if(s.length()<2) {
+            return s.length();
+        }
+        int[] a = new int[256];
+        for(int i=0;i<256;i++) {
+            a[i]=-1;
+        }
+        int maxLength=0;
+        int currLength=0;
+        int start=0;
+        for(int i=0;i<s.length();i++) {
+            if(a[s.charAt(i)]==-1) {
+                a[s.charAt(i)]=i;
+            //System.out.println(a[i]);
+                currLength++;
+            }  else {
+               maxLength=Math.max(currLength,maxLength);
+               currLength = currLength-(a[s.charAt(i)]-start);
+                start = a[s.charAt(i)]+1;
+                for(int j=0;j<256;j++) {
+                    if(a[j]!=-1 && a[j]<a[s.charAt(i)]) {
+                        a[j]=-1;
+                    }
+                }
+                a[s.charAt(i)]=i;
+            }
+        }
+    return Math.max(maxLength,currLength);
+    }
 }
