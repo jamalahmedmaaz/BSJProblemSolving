@@ -19,6 +19,10 @@ public class AddTwoNumbers {
      */
 
     public static void main(String[] args) {
+
+        int i = 7/2;
+        float f = 7f/2;
+        System.out.println(f);
         AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
         addTwoNumbers.solution1(null, null);
     }
