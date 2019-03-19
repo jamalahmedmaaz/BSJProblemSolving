@@ -33,71 +33,40 @@ public class StringToIntegerAtoi {
 
     }
 
+    public static boolean isNumercal(char c) {
+        return (c >= '0' && c <= '9');
+    }
+
     public int myAtoi(String str) {
-
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-
-
-        str = str.trim();
-
-        boolean negative = str.length() > 0 && str.charAt(0) == '-';
-
-        int number = 0;
-        int multiplier = 1;
-        for (int i = str.length() - 1; i >= 0; i--) {
-            switch (str.charAt(i)) {
-                case '.':
-
-                    multiplier = 1;
-                    number = 0;
-                    break;
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                    int current = (int) str.charAt(i) - '0';
-                    if (current >= 0 && current <= 9) {
-
-                        number = multiplier * current + number;
-                        long l = ((long) multiplier * current) + (long) number;
-
-                        if (l > Integer.MAX_VALUE)
-                            if (negative)
-                                number = Integer.MIN_VALUE;
-                            else
-                                number = Integer.MAX_VALUE;
-
-                        if (negative && l < Integer.MIN_VALUE)
-                            number = Integer.MIN_VALUE;
-
-
-                        multiplier = multiplier * 10;
-                    }
-                    break;
-                case '-':
-                    number = -number;
-                    break;
-                default:
-                    if (str.charAt(i) == '+') {
-                        break;
-                    }
-                    if (str.charAt(i) != ' ') {
-                        number = 0;
-                    }
-
+        int ans = 0, i = 0;
+        int limit = -Integer.MAX_VALUE;
+        boolean negative = false;
+        int multMin = limit / 10;
+        while (i < str.length() && str.charAt(i) == ' ') i++;
+        if (i < str.length()) {
+            if (str.charAt(i) == '-') {
+                negative = true;
+                i++;
+            } else if (str.charAt(i) == '+') {
+                i++;
             }
-
         }
-
-
-        return number;
+        while (i < str.length()) {
+            if (isNumercal(str.charAt(i))) {
+                int digit = str.charAt(i) - '0';
+                if (ans < multMin) {
+                    return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                }
+                ans *= 10;
+                if (ans < limit + digit) {
+                    return negative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                }
+                ans -= digit;
+                i++;
+            } else {
+                break;
+            }
+        }
+        return negative ? ans : -ans;
     }
 }
