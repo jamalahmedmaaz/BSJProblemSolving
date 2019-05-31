@@ -23,6 +23,59 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    public Node addFirst(int value) {
+        size++;
+        Node node = new Node(value);
+        if (head == null) {
+            head = tail = node;
+        } else {
+            head.previous = node;
+            node.next = head;
+            head = node;
+        }
+        return node;
+    }
+
+    public Node removeLast() {
+        if (size != 0) {
+            --size;
+            if (head == tail) {
+                Node node = head;
+                head = tail = null;
+                return node;
+            } else {
+                Node node = tail;
+                Node nodePrevious = node.previous;
+                nodePrevious.next = null;
+                node.previous = null;
+                tail = nodePrevious;
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public void deleteNode(Node node) {
+        --size;
+        if (head == node) {
+            Node tmp = head.next;
+            head.next = null;
+            tmp.previous = null;
+            head = tmp;
+        } else if (tail == node) {
+            Node tmp = tail.previous;
+            tail.previous = null;
+            tmp.next = null;
+            tail = tmp;
+        } else {
+            Node nodePrevious = node.previous;
+            Node nodeNext = node.next;
+            nodePrevious.next = nodeNext;
+            nodeNext.previous = nodePrevious;
+        }
+    }
+
+
     public Node getHead() {
         return head;
     }
@@ -111,60 +164,6 @@ public class DoublyLinkedList {
             tail.next = node;
             tail = node;
             return node;
-        }
-    }
-
-    public Node addFirst(int value) {
-        size++;
-        Node node = new Node(value);
-        if (head == null) {
-            head = tail = node;
-        } else {
-
-            head.previous = node;
-            node.next = head;
-            head = node;
-        }
-        return node;
-    }
-
-    public Node removeLast() {
-
-        if (size != 0) {
-            --size;
-
-            Node node = tail;
-            Node nodePrevious = node.previous;
-            nodePrevious.next = null;
-            node.previous = null;
-            tail = nodePrevious;
-
-            return node;
-        }
-        return null;
-    }
-
-    public void deleteNode(Node node) {
-        --size;
-        if (head == node) {
-            Node tmp = head.next;
-            head.next = null;
-            tmp.previous = null;
-            head = tmp;
-        } else if (tail == node) {
-            Node tmp = tail.previous;
-            tail.previous = null;
-            tmp.next = null;
-            tail = tmp;
-        } else {
-
-            Node nodePrevious = node.previous;
-            Node nodeNext = node.next;
-
-            nodePrevious.next = nodeNext;
-            nodeNext.previous = nodePrevious;
-
-            node = null;
         }
     }
 

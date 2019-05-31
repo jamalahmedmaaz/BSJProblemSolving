@@ -16,7 +16,7 @@ public class LeastRecentlyUsedCache {
     }
 
     public static void main(String[] args) {
-        LeastRecentlyUsedCache leastRecentlyUsedCache = new LeastRecentlyUsedCache(3);
+        LeastRecentlyUsedCache leastRecentlyUsedCache = new LeastRecentlyUsedCache(4);
 
         leastRecentlyUsedCache.refer(1);
         leastRecentlyUsedCache.refer(2);
