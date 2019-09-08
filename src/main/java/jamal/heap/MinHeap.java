@@ -1,6 +1,7 @@
 package jamal.heap;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class MinHeap {
 
@@ -172,6 +173,8 @@ public class MinHeap {
 
         heap[index] = lastValue;
 
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(1);
     }
 
 
