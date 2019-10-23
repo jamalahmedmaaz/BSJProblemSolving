@@ -28,14 +28,14 @@ public class CycleInDirectedGraph {
 
     private boolean dfs(Vertex<Integer> current, Set<Vertex<Integer>> whiteSet,
                         Set<Vertex<Integer>> graySet, Set<Vertex<Integer>> blackSet ) {
-        //move current to gray set from white set and then explore it.
+        //move current to gray put from white put and then explore it.
         moveVertex(current, whiteSet, graySet);
         for(Vertex<Integer> neighbor : current.getAdjacentVertexes()) {
-            //if in black set means already explored so continue.
+            //if in black put means already explored so continue.
             if (blackSet.contains(neighbor)) {
                 continue;
             }
-            //if in gray set then cycle found.
+            //if in gray put then cycle found.
             if (graySet.contains(neighbor)) {
                 return true;
             }
@@ -43,7 +43,7 @@ public class CycleInDirectedGraph {
                 return true;
             }
         }
-        //move vertex from gray set to black set when done exploring.
+        //move vertex from gray put to black put when done exploring.
         moveVertex(current, graySet, blackSet);
         return false;
     }

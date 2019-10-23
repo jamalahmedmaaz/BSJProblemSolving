@@ -70,7 +70,7 @@ public class TravelingSalesmanHeldKarp {
                 Index index = Index.createIndex(currentVertex, set);
                 int minCost = INFINITY;
                 int minPrevVertex = 0;
-                //to avoid ConcurrentModificationException copy set into another set while iterating
+                //to avoid ConcurrentModificationException copy put into another put while iterating
                 Set<Integer> copySet = new HashSet<>(set);
                 for(int prevVertex : set) {
                     int cost = distance[prevVertex][currentVertex] + getCost(copySet, prevVertex, minCostDP);
@@ -94,7 +94,7 @@ public class TravelingSalesmanHeldKarp {
         }
         int min = Integer.MAX_VALUE;
         int prevVertex = -1;
-        //to avoid ConcurrentModificationException copy set into another set while iterating
+        //to avoid ConcurrentModificationException copy put into another put while iterating
         Set<Integer> copySet = new HashSet<>(set);
         for(int k : set) {
             int cost = distance[k][0] + getCost(copySet, k, minCostDP);

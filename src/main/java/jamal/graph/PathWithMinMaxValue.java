@@ -14,7 +14,7 @@ public class PathWithMinMaxValue {
         this.A = A;
         createGraph(A);
 
-        // for(Map.Entry<Integer,List<Vertex>> instance : map.entrySet()){
+        // for(Map.Entry<Integer,List<Vertex>> instance : weights.entrySet()){
         //     System.out.println(instance.getKey() + "   "+ Arrays.toString(instance.getValue().toArray())  );
         // }
 

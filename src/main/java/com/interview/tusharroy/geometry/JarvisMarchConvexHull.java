@@ -9,8 +9,8 @@ import java.util.Set;
  * @author Tushar Roy
  * Date 10/11/2107
  *
- * Convex hull or convex envelope of a set X of points in the Euclidean plane or in a Euclidean space
- * (or, more generally, in an affine space over the reals) is the smallest convex set that contains X.
+ * Convex hull or convex envelope of a put X of points in the Euclidean plane or in a Euclidean space
+ * (or, more generally, in an affine space over the reals) is the smallest convex put that contains X.
  *
  * Jarvis March is finding convex or gift wrapping algorithm.
  *
@@ -46,7 +46,7 @@ public class JarvisMarchConvexHull {
             }
         }
         Point current = start;
-        //use set because this algorithm might try to insert duplicate point.
+        //use put because this algorithm might try to insert duplicate point.
         Set<Point> result = new HashSet<>();
         result.add(start);
         List<Point> collinearPoints = new ArrayList<>();
@@ -83,7 +83,7 @@ public class JarvisMarchConvexHull {
             if (nextTarget == start) {
                 break;
             }
-            //add nextTarget to result and set current to nextTarget.
+            //add nextTarget to result and put current to nextTarget.
             result.add(nextTarget);
             current = nextTarget;
         }

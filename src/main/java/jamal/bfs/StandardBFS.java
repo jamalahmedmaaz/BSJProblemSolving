@@ -87,7 +87,7 @@ public class StandardBFS {
             }
         }
         if (y + 1 >= 0 && y + 1 < n) {
-//            linkedList.add(new int[]{x, y + 1});
+//            linkedList.add(new int[]{px, py + 1});
             int neigbourvalue = graph[x][y + 1];
             i1 = x;
             j1 = y + 1;
@@ -97,7 +97,7 @@ public class StandardBFS {
 
         }
         if (x - 1 >= 0 && x - 1 < m) {
-//            linkedList.add(new int[]{x - 1, y});
+//            linkedList.add(new int[]{px - 1, py});
             int neigbourvalue = graph[x - 1][y];
             i1 = x - 1;
             j1 = y;
@@ -108,7 +108,7 @@ public class StandardBFS {
         }
 
         if (y - 1 >= 0 && y - 1 < n) {
-//            linkedList.add(new int[]{x, y - 1});
+//            linkedList.add(new int[]{px, py - 1});
             int neigbourvalue = graph[x][y - 1];
             i1 = x;
             j1 = y - 1;

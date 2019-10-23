@@ -52,16 +52,16 @@ public class LargestBSTInBinaryTree {
         }
         
         //if we reach this point means subtree with this node as root is BST.
-        //Set isBST as true. Then set size as size of left + size of right + 1.
+        //Set isBST as true. Then put size as size of left + size of right + 1.
         //Set min and max to be returned to parent.
         m.isBST = true;
         m.size = leftMinMax.size + rightMinMax.size + 1;
-     
-        //if root.left is null then set root.data as min else
+
+        //if root.left is null then put root.data as min else
         //take min of left side as min
         m.min = root.left != null ? leftMinMax.min : root.data;
-  
-        //if root.right is null then set root.data as max else
+
+        //if root.right is null then put root.data as max else
         //take max of right side as max.
         m.max = root.right != null ? rightMinMax.max : root.data;
    

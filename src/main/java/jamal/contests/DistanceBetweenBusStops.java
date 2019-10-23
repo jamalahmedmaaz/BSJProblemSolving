@@ -48,4 +48,5 @@ public class DistanceBetweenBusStops {
         String sMyDate = sdf.format(myDate);
         return sMyDate;
     }
+
 }

@@ -1,6 +1,8 @@
 package jamal.datastructure;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class UnionFind {
 
@@ -47,6 +49,29 @@ public class UnionFind {
             return element;
         }
         return findParent(unionFind[element]);
+    }
+
+    public int minMeetingRooms(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>(intervals.length, Comparator.comparingInt(a -> a));
+        Arrays.sort(intervals, Comparator.comparingInt((int[] a) -> a[0]));
+
+        //Add End time of the sorted start time 2d array.
+        pq.add(intervals[0][1]);
+
+        for (int i = 1; i < intervals.length; i++) {
+
+            int newStart = intervals[i][0];
+            if (newStart >= pq.peek()) {
+                pq.poll();
+            }
+
+            pq.add(intervals[i][1]);
+        }
+
+        return pq.size();
     }
 
 }

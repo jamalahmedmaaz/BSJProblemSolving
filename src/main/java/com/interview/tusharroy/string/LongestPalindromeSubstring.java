@@ -81,7 +81,7 @@ public class LongestPalindromeSubstring {
                 start--;
                 end++;
             }
-            //set the longest value of palindrome around center i at T[i]
+            //put the longest value of palindrome around center i at T[i]
             T[i] = end - start + 1;
 
             //this is case 2. Current palindrome is proper suffix of input. No need to proceed. Just break out of loop.

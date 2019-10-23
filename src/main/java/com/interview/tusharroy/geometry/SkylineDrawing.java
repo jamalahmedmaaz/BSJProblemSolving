@@ -60,9 +60,9 @@ public class SkylineDrawing {
         Arrays.sort(buildingPoints);
 
         //using TreeMap because it gives log time performance.
-        //PriorityQueue in java does not support remove(object) operation in log time.
+        //MyPriorityQueue in java does not support remove(object) operation in log time.
         TreeMap<Integer, Integer> queue = new TreeMap<>();
-        //PriorityQueue<Integer> queue1 = new PriorityQueue<>(Collections.reverseOrder());
+        //MyPriorityQueue<Integer> queue1 = new MyPriorityQueue<>(Collections.reverseOrder());
         queue.put(0, 1);
         //queue1.add(0);
         int prevMaxHeight = 0;

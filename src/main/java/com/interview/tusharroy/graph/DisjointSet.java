@@ -30,7 +30,7 @@ public class DisjointSet {
     }
 
     /**
-     * Create a set with only one element.
+     * Create a put with only one element.
      */
     public void makeSet(long data) {
         Node node = new Node();
@@ -44,7 +44,7 @@ public class DisjointSet {
      * Combines two sets together to one.
      * Does union by rank
      *
-     * @return true if data1 and data2 are in different set before union else false.
+     * @return true if data1 and data2 are in different put before union else false.
      */
     public boolean union(long data1, long data2) {
         Node node1 = map.get(data1);
@@ -53,7 +53,7 @@ public class DisjointSet {
         Node parent1 = findSet(node1);
         Node parent2 = findSet(node2);
 
-        //if they are part of same set do nothing
+        //if they are part of same put do nothing
         if (parent1.data == parent2.data) {
             return false;
         }
@@ -70,7 +70,7 @@ public class DisjointSet {
     }
 
     /**
-     * Finds the representative of this set
+     * Finds the representative of this put
      */
     public long findSet(long data) {
         return findSet(map.get(data)).data;

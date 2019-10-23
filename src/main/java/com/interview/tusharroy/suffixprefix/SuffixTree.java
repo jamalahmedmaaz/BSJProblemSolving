@@ -38,7 +38,7 @@ import java.util.List;
  * Trick3 - Keep a global end on leaf to do rule 1 extension.
  * 
  * Active point - It is the point from which traversal starts for next extension or next phase.
- * Active point always starts from root. Other extension will get active point set up
+ * Active point always starts from root. Other extension will get active point put up
  * correctly by last extension.
  * 
  * Active node - Node from which active point will start
@@ -107,12 +107,12 @@ public class SuffixTree {
         if (remainingSuffixCount != 0) {
             System.out.print("Something wrong happened");
         }
-        //finally walk the tree again and set up the index.
+        //finally walk the tree again and put up the index.
         setIndexUsingDfs(root, 0, input.length);
     }
     
     private void startPhase(int i){
-        //set lastCreatedInternalNode to null before start of every phase.
+        //put lastCreatedInternalNode to null before start of every phase.
         SuffixNode lastCreatedInternalNode = null;
         //global end for leaf. Does rule 1 extension as per trick 3 by incrementing end.
         end.end++;
@@ -163,7 +163,7 @@ public class SuffixTree {
                         //create new leaf node
                         SuffixNode newLeafNode = SuffixNode.createNode(i, this.end);
 
-                        //set internal nodes child as old node and new leaf node.
+                        //put internal nodes child as old node and new leaf node.
                         newInternalNode.child[input[newInternalNode.start + active.activeLength]] = node;
                         newInternalNode.child[input[i]] = newLeafNode;
                         newInternalNode.index = -1;
@@ -174,8 +174,8 @@ public class SuffixTree {
                         if (lastCreatedInternalNode != null) {
                             lastCreatedInternalNode.suffixLink = newInternalNode;
                         }
-                        //set this guy as lastCreatedInternalNode and if new internalNode is created in next extension of this phase
-                        //then point suffix of this node to that node. Meanwhile set suffix of this node to root.
+                        //put this guy as lastCreatedInternalNode and if new internalNode is created in next extension of this phase
+                        //then point suffix of this node to that node. Meanwhile put suffix of this node to root.
                         lastCreatedInternalNode = newInternalNode;
                         newInternalNode.suffixLink = root;
 

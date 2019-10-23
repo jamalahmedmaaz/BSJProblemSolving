@@ -27,7 +27,7 @@ public class Amazon {
         // But the base case (or the sub problem) is to pick the
         // least element currently existing in the list.
 
-        //So PriorityQueue for the rescue.
+        //So MyPriorityQueue for the rescue.
 
         PriorityQueue<Integer> pq = new PriorityQueue();
         pq.addAll(files);

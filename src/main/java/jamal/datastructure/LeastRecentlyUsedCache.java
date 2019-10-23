@@ -6,13 +6,13 @@ import java.util.Map;
 public class LeastRecentlyUsedCache {
 
     private final int capacity;
-    private DoublyLinkedList doublyLinkedList;
-    private Map<Integer, DoublyLinkedList.Node> nodeMap;
+    private MyDoublyLinkedList myDoublyLinkedList;
+    private Map<Integer, MyDoublyLinkedList.Node> nodeMap;
 
     public LeastRecentlyUsedCache(int capacity) {
         this.capacity = capacity;
         nodeMap = new HashMap<>();
-        doublyLinkedList = new DoublyLinkedList();
+        myDoublyLinkedList = new MyDoublyLinkedList();
     }
 
     public static void main(String[] args) {
@@ -31,22 +31,22 @@ public class LeastRecentlyUsedCache {
         leastRecentlyUsedCache.refer(4);
         leastRecentlyUsedCache.refer(5);
 
-        leastRecentlyUsedCache.doublyLinkedList.print();
+        leastRecentlyUsedCache.myDoublyLinkedList.print();
 
     }
 
     private void refer(int value) {
         if (nodeMap.containsKey(value)) {
-            DoublyLinkedList.Node node = nodeMap.remove(value);
-            doublyLinkedList.deleteNode(node);
+            MyDoublyLinkedList.Node node = nodeMap.remove(value);
+            myDoublyLinkedList.deleteNode(node);
         } else {
-            if (doublyLinkedList.getSize() == capacity) {
-                DoublyLinkedList.Node node = doublyLinkedList.removeLast();
+            if (myDoublyLinkedList.getSize() == capacity) {
+                MyDoublyLinkedList.Node node = myDoublyLinkedList.removeLast();
                 nodeMap.remove(node.getValue());
             }
         }
 
-        DoublyLinkedList.Node node = doublyLinkedList.addFirst(value);
+        MyDoublyLinkedList.Node node = myDoublyLinkedList.addFirst(value);
         nodeMap.put(value, node);
     }
 

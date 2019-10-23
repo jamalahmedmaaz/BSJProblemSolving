@@ -11,7 +11,7 @@ package com.interview.tusharroy.recursion;
  * * * c
  * 
  * Idea is to store the index of values in used[] array. So just
- * like regular combination if used is set print it else print *
+ * like regular combination if used is put print it else print *
  */
 public class CombinationWithStar {
 

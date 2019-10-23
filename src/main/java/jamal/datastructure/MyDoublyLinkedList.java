@@ -1,6 +1,6 @@
 package jamal.datastructure;
 
-public class DoublyLinkedList {
+public class MyDoublyLinkedList {
 
     private Node head;
     private Node tail;
@@ -8,18 +8,18 @@ public class DoublyLinkedList {
     private int size;
 
     public static void main(String[] args) {
-        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
-        doublyLinkedList.add(1);
-        doublyLinkedList.add(2);
-        doublyLinkedList.add(3);
-        doublyLinkedList.add(4);
-        doublyLinkedList.add(5);
+        MyDoublyLinkedList myDoublyLinkedList = new MyDoublyLinkedList();
+        myDoublyLinkedList.add(1);
+        myDoublyLinkedList.add(2);
+        myDoublyLinkedList.add(3);
+        myDoublyLinkedList.add(4);
+        myDoublyLinkedList.add(5);
 
-        doublyLinkedList.delete(1);
-        doublyLinkedList.delete(3);
-        doublyLinkedList.delete(5);
+        myDoublyLinkedList.delete(1);
+        myDoublyLinkedList.delete(3);
+        myDoublyLinkedList.delete(5);
 
-        doublyLinkedList.print();
+        myDoublyLinkedList.print();
         System.out.println();
     }
 

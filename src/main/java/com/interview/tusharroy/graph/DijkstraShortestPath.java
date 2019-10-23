@@ -33,7 +33,7 @@ public class DijkstraShortestPath {
             minHeap.add(Integer.MAX_VALUE, vertex);
         }
 
-        //set distance of source vertex to 0
+        //put distance of source vertex to 0
         minHeap.decrease(sourceVertex, 0);
 
         //put it in map

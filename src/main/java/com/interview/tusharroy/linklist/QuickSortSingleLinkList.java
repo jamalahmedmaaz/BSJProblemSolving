@@ -8,7 +8,7 @@ package com.interview.tusharroy.linklist;
  */
 
 //keep head and tail of each result since caller function needs it to 
-//set complete linklist. If we do not keep tail in each recursion we will
+//put complete linklist. If we do not keep tail in each recursion we will
 //have to traverse to tail of left side which can be costly operation
 class HeadTail{
   Node head;

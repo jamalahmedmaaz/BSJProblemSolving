@@ -9,8 +9,8 @@ import java.util.Stack;
  * @author Tushar Roy
  * Date 10/11/2107
  *
- * Convex hull or convex envelope of a set X of points in the Euclidean plane or in a Euclidean space
- * (or, more generally, in an affine space over the reals) is the smallest convex set that contains X.
+ * Convex hull or convex envelope of a put X of points in the Euclidean plane or in a Euclidean space
+ * (or, more generally, in an affine space over the reals) is the smallest convex put that contains X.
  *
  * Graham scan finds all vertices of the convex hull ordered along its boundary.
  *

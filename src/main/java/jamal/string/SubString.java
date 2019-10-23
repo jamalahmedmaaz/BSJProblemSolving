@@ -5,7 +5,7 @@ public class SubString {
     public static void main(String[] args) {
         System.out.println(null == null);
         System.out.println(Integer.MAX_VALUE);
-        String string = "babad";
+        String string = "abc";
         for (int i = 1; i <= string.length(); i++) {
             for (int j = 0; j < string.length(); j++) {
                 int rightIndex = j + i;

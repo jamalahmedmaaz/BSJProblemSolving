@@ -38,7 +38,7 @@ public class LongestIncreasingSubsequence {
                 if(arr[i] > arr[j]){
                     if(T[j] + 1 > T[i]){
                         T[i] = T[j] + 1;
-                        //set the actualSolution to point to guy before me
+                        //put the actualSolution to point to guy before me
                         actualSolution[i] = j;
                     }
                 }

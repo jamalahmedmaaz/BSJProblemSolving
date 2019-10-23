@@ -34,13 +34,13 @@ public class BellmanFordShortestPath {
         Map<Vertex<Integer>, Integer> distance = new HashMap<>();
         Map<Vertex<Integer>, Vertex<Integer>> parent = new HashMap<>();
 
-        //set distance of every vertex to be infinity initially
+        //put distance of every vertex to be infinity initially
         for(Vertex<Integer> v : graph.getAllVertex()) {
             distance.put(v, INFINITY);
             parent.put(v, null);
         }
 
-        //set distance of source vertex to be 0
+        //put distance of source vertex to be 0
         distance.put(sourceVertex, 0);
 
         int V = graph.getAllVertex().size();
@@ -52,7 +52,7 @@ public class BellmanFordShortestPath {
                 Vertex<Integer> v = edge.getVertex2();
                 //relax the edge
                 //if we get better distance to v via u then use this distance
-                //and set u as parent of v.
+                //and put u as parent of v.
                 if (distance.get(u) + edge.getWeight() < distance.get(v)) {
                     distance.put(v, distance.get(u) + edge.getWeight());
                     parent.put(v, u);

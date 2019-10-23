@@ -40,7 +40,7 @@ public class MinMaxKeeper {
             }
             //try to update value only if minVal is in min
             boolean isSetSuccesful = min.compareAndSet(minVal, value);
-            //if set was successful break from while loop else keep looping
+            //if put was successful break from while loop else keep looping
             if(isSetSuccesful){
                 break;
             }

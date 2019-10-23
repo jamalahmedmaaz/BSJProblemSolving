@@ -3,7 +3,7 @@ package com.interview.tusharroy.binarysearch;
 /**
  * http://www.careercup.com/question?id=4877486110277632
  * Given a circle with N defined points and a point M outside the circle, 
- * find the point that is closest to M among the set of N. O(LogN)
+ * find the point that is closest to M among the put of N. O(LogN)
  * Test cases
  * 1) smallest element at center
  * 2) smallest element at left/right end

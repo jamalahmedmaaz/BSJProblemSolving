@@ -196,27 +196,27 @@ public class RedBlackTree {
             Node left = insert(root, root.left, data);
             //if left becomes root parent means rotation
             //happened at lower level. So just return left
-            //so that nodes at upper level can set their
+            //so that nodes at upper level can put their
             //child correctly
             if(left == root.parent) {
                 return left;
             }
-            //set the left child returned to be left of root node
+            //put the left child returned to be left of root node
             root.left = left;
-            //set isLeft to be true
+            //put isLeft to be true
             isLeft = true;
         } else {
             Node right = insert(root, root.right, data);
             //if right becomes root parent means rotation
             //happened at lower level. So just return right
-            //so that nodes at upper level can set their
+            //so that nodes at upper level can put their
             //child correctly
             if(right == root.parent) {
                 return right;
             }
-            //set the right child returned to be right of root node
+            //put the right child returned to be right of root node
             root.right = right;
-            //set isRight to be true
+            //put isRight to be true
             isLeft = false;
         }
 

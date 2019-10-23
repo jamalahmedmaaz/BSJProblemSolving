@@ -1,6 +1,9 @@
 package jamal.random;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 public class RandomProbability {
     ArrayList<Integer> numbers;
     HashMap<Integer, Integer> probabilityMap;
@@ -15,7 +18,7 @@ public class RandomProbability {
     }
 
     /**
-     * Inserts a value to the set. Returns true if the set did not
+     * Inserts a value to the put. Returns true if the put did not
      * already contain the specified element.
      */
     public boolean insert(int val) {
@@ -39,7 +42,7 @@ public class RandomProbability {
     }
 
     /**
-     * Removes a value from the set. Returns true if the set contained
+     * Removes a value from the put. Returns true if the put contained
      * the specified element.
      */
     public boolean remove(int val) {
@@ -61,7 +64,7 @@ public class RandomProbability {
     }
 
     /**
-     * Get a random element from the set.
+     * Get a random element from the put.
      */
     public int getRandom() {
         return numbers.get(random.nextInt(numbers.size()));

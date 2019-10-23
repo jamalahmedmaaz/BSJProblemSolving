@@ -54,12 +54,12 @@ public class KruskalMST {
             long root1 = disjointSet.findSet(edge.getVertex1().getId());
             long root2 = disjointSet.findSet(edge.getVertex2().getId());
 
-            //check if the vertices are in same set or different set
-            //if verties are in same set then ignore the edge
+            //check if the vertices are in same put or different put
+            //if verties are in same put then ignore the edge
             if (root1 == root2) {
                 continue;
             } else {
-                //if vertices are in different set then add the edge to result and union these two sets into one
+                //if vertices are in different put then add the edge to result and union these two sets into one
                 resultEdge.add(edge);
                 disjointSet.union(edge.getVertex1().getId(), edge.getVertex2().getId());
             }
