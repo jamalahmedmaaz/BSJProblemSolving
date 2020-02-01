@@ -98,3 +98,42 @@ public class MinHeap {
 
 
 }
+
+class Solution {
+    int[][] dp;
+    int[] A;
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minimumMoves(new int[]{1, 3, 1, 4, 5}));
+    }
+
+    public int minimumMoves(int[] A) {
+        int n = A.length;
+        dp = new int[n][n];
+        this.A = A;
+        return dfs(0, n - 1);
+    }
+
+    int dfs(int i, int j) {
+        if (i > j) {
+            return 0;
+        }
+        if (dp[i][j] > 0) {
+            return dp[i][j];
+        }
+        int min = dfs(i, j - 1) + 1;
+        System.out.println(min + " " + i + " " + j);
+        if (j > 0 && A[j] == A[j - 1]) {
+            min = Math.min(min, dfs(i, j - 2) + 1);
+        }
+        for (int k = i; k < j - 1; ++k) {
+            if (A[k] == A[j]) {
+                min = Math.min(min, dfs(i, k - 1) + dfs(k + 1, j - 1));
+            }
+        }
+        dp[i][j] = min;
+        System.out.println(" ");
+        return min;
+    }
+}

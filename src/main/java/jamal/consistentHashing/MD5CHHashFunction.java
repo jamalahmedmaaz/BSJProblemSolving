@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 //default hash function
 class MD5CHHashFunction implements ConsistentHashingHashFunction {
+
     MessageDigest instance;
 
     public MD5CHHashFunction() {

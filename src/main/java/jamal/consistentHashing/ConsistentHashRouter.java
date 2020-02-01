@@ -17,14 +17,14 @@ public class ConsistentHashRouter<T extends Node> {
 
         if (serverNodes != null) {
             for (T serverNode : serverNodes) {
-                addNode(serverNode, virtualNodes);
+                addNode(serverNode, 1);
             }
         }
     }
 
-    private void addNode(T serverNode, int virtualNodes) {
+    private void addNode(T serverNode, int nodes) {
         int existingReplicas = getExistingReplicas(serverNode);
-        for (int i = 0; i < virtualNodes; i++) {
+        for (int i = 0; i < nodes; i++) {
             VirtualNode<T> virtualNode = new VirtualNode<>(serverNode, i + existingReplicas);
             ringTopology.put(hashFunction.hash(virtualNode.getKey()), virtualNode);
         }

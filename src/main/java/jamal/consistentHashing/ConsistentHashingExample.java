@@ -1,14 +1,17 @@
+
 package jamal.consistentHashing;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 public class ConsistentHashingExample {
+
     public static void main(String[] args) {
         ServerNode serverNode1 = new ServerNode("server1", "127.0.0.1", 8080);
         ServerNode serverNode2 = new ServerNode("server2", "127.0.0.1", 8081);
         ServerNode serverNode3 = new ServerNode("server3", "127.0.0.1", 8082);
-        ConsistentHashRouter consistentHashRouter = new ConsistentHashRouter<>(Arrays.asList(serverNode1, serverNode2, serverNode3), 3);//10 virtual node
+
+        ConsistentHashRouter consistentHashRouter = new ConsistentHashRouter<>(Arrays.asList(serverNode1, serverNode2, serverNode3), 0);//10 virtual node
 
         //we have 5 requester ip, we are trying them to route to one service node
         String requestIP1 = "192.168.0.1";

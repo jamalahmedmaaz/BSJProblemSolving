@@ -74,4 +74,45 @@ public class UnionFind {
         return pq.size();
     }
 
+    class AllUnionFind {
+        int[] parent;
+        int[] rank;
+        int[] size;
+
+        AllUnionFind(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            size = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+                size[i] = 1;
+            }
+        }
+
+        int find(int x) {
+            if (parent[x] != x) {
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
+        void union(int x, int y) {
+            int parentx = find(x);
+            int parenty = find(y);
+            if (parentx == parenty) {
+                return;
+            }
+            if (rank[parentx] == rank[parenty]) {
+                rank[parentx]++;
+                parent[parenty] = parentx;
+                size[parentx] += size[parenty];
+            } else if (rank[parentx] < rank[parenty]) {
+                parent[parentx] = parenty;
+                size[parenty] = size[parenty] + size[parentx];
+            } else {
+                parent[parenty] = parentx;
+                size[parentx] = size[parentx] + size[parenty];
+            }
+        }
+    }
 }
