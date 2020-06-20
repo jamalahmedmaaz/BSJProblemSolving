@@ -4,17 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 public class VirtualNode<T extends Node> implements Node {
     final T physicalNode;
-    final int replicaIndex;
+    final int virtualNodeIndex;
     final Map<String, DataElement> set = new HashMap<>();
 
     public VirtualNode(T physicalNode, int replicaIndex) {
-        this.replicaIndex = replicaIndex;
+        this.virtualNodeIndex = replicaIndex;
         this.physicalNode = physicalNode;
     }
 
     @Override
     public String getKey() {
-        return physicalNode.getKey() + "-" + replicaIndex;
+        return physicalNode.getKey() + "-" + virtualNodeIndex;
     }
 
     @Override

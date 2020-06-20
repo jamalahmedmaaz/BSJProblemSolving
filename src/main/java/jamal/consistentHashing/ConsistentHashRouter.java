@@ -5,7 +5,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 public class ConsistentHashRouter<T extends Node> {
 
-    private final SortedMap<Long, VirtualNode<T>> ringTopology = new TreeMap<>();
+    private final TreeMap<Long, VirtualNode<T>> ringTopology = new TreeMap<>();
     private final MD5CHHashFunction hashFunction;
 
     public ConsistentHashRouter(List<T> serverNodes, int virtualNodes) {
@@ -17,7 +17,7 @@ public class ConsistentHashRouter<T extends Node> {
 
         if (serverNodes != null) {
             for (T serverNode : serverNodes) {
-                addNode(serverNode, 1);
+                addNode(serverNode, virtualNodes);
             }
         }
     }

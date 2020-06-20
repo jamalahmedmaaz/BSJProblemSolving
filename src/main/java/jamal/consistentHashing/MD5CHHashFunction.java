@@ -14,6 +14,7 @@ class MD5CHHashFunction implements ConsistentHashingHashFunction {
         }
     }
 
+
     @Override
     public long hash(String key) {
         instance.reset();
